@@ -1,0 +1,8 @@
+:root {
+  --primary: rebeccapurple;
+  --secondary: tomato;
+}
+
+h1 {
+  color: var(--secondary);
+}
