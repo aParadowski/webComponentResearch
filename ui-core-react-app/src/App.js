@@ -16,7 +16,7 @@ import './web-components/CoreWebComponent';
 import './web-components/CoreDecButton';
 
 // taken from https://www.grapecity.com/blogs/using-web-components-with-react-2019
-const CounterApp = () => {
+const App = () => {
   return (
     <AyxAppWrapper>
       <Grid container justify="center">
@@ -25,5 +25,5 @@ const CounterApp = () => {
     </AyxAppWrapper>
   );
 }
-
-render(<CounterApp />, document.getElementById('root'));
+export default App;
+// render(<CounterApp />, document.getElementById('root'));

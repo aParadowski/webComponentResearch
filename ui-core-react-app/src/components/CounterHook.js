@@ -47,6 +47,7 @@ export default () => {
               </CounterBox>
             </Grid>
           </Grid>
+          <Typography>Basic components</Typography>
           <Grid container spacing={2} style={{ marginTop: 20 }}>
             <Grid item xs>
               <Button color="primary" onClick={incrementCounter} variant="contained">
@@ -61,9 +62,15 @@ export default () => {
             </Grid>
           </Grid>
 
+          <Typography>Web Components</Typography>
           <Grid container spacing={2} style={{ marginTop: 20 }}>
             <Grid item xs>
               <core-inc-btn onClick={incrementCounter} />
+            </Grid>
+            <Grid item xs="auto">
+              <core-dec-btn onMouseEnter={() => console.log('i did it')} onClick={decrementCounter} variant="contained" color="primary" title="test">
+                <td-counter count={count} />
+              </core-dec-btn>
             </Grid>
           </Grid>
         </CardContent>

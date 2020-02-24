@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AyxAppWrapper, Typography } from '@ayx/ui-core';
+import { StylesProvider, jssPreset } from '@material-ui/styles';
+import { create } from 'jss';
 
+let jss;
 class TypoDeclarativeCounter extends HTMLElement {
   mountPoint;
 
@@ -29,11 +32,17 @@ class TypoDeclarativeCounter extends HTMLElement {
   update() {
     if (!this.mountPoint) {
       this.mountPoint = document.createElement('div');
+      jss = create({
+        ...jssPreset(),
+        insertionPoint: this.mountPoint
+    });
       this.attachShadow({ mode: 'open' }).appendChild(this.mountPoint);
     }
 
     ReactDOM.render(
-        <Typography variant="subtitle2"> Count: {this.currentCount}</Typography>,
+      <StylesProvider jss={jss}>
+        <Typography variant="subtitle2"> Count: {this.currentCount}</Typography>
+        </StylesProvider>,
       this.mountPoint
     );
   }

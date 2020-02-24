@@ -4,7 +4,8 @@ import { AyxAppWrapper, Button } from '@ayx/ui-core';
 import { StylesProvider, jssPreset } from '@material-ui/styles';
 import { create } from 'jss';
 let jss;
-class CoreWebIncrementer extends HTMLElement {
+
+class CoreDecButton extends HTMLElement {
   mountPoint;
 
   disconnectedCallback() {
@@ -12,7 +13,7 @@ class CoreWebIncrementer extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['onClick'];
+    // return ['onClick'];
   }
 
   // we dont need to check the attrName of what was updated since we told the browser
@@ -23,8 +24,16 @@ class CoreWebIncrementer extends HTMLElement {
   }
 
   connectedCallback() {
-    this.onClick = this.getAttribute('onClick') || undefined;
+    // this.onClick = this.getAttribute('onClick') || undefined;
     this.update();
+  }
+
+  convertAttributes(attrs) {
+    const attrList = {};
+    Object.keys(attrs).forEach(attr => {
+      attrList[attrs[attr].name] = attrs[attr].value
+    });
+    return attrList;
   }
 
   // refreshed the elements shadowDOM
@@ -36,14 +45,27 @@ class CoreWebIncrementer extends HTMLElement {
         insertionPoint: this.mountPoint
     });
       this.attachShadow({ mode: 'open' }).appendChild(this.mountPoint);
+      
+      this.addEventListener('focus', function(event) {
+        console.info('element in shadow root focused', event.target);
+        /* do stuff */
+      });
     }
 
+    console.log({this: this})
+    console.log({attributes: this.attributes})
+    console.log({children: this.children})
+    
+    const attrs = this.convertAttributes(this.attributes);
+    console.log(attrs)
+    const { disabled, autofocus} = this.attributes; //whiteListAttributes
     ReactDOM.render(
       <StylesProvider jss={jss}>
         <AyxAppWrapper>
-          <Button color="primary" onClick={this.onClick} variant="contained">
-            Increment
-          </Button>
+        {/* <Button onClick={this.onClick} disabled={disabled} autofocus={autofocus} variant="contained" color={this.attributes.color.value} >{this.innerHTML}</Button> */}
+          <Button {...attrs}>
+            <div dangerouslySetInnerHTML={{__html: this.innerHTML}} />
+          </Button> 
         </AyxAppWrapper>
       </StylesProvider>,
       this.mountPoint
@@ -51,4 +73,4 @@ class CoreWebIncrementer extends HTMLElement {
   }
 }
 
-window.customElements.define('core-inc-btn', CoreWebIncrementer);
+window.customElements.define('core-dec-btn', CoreDecButton);
