@@ -65,12 +65,12 @@ export default () => {
           <Typography>Web Components</Typography>
           <Grid container spacing={2} style={{ marginTop: 20 }}>
             <Grid item xs>
-              <core-inc-btn onClick={incrementCounter} />
+              <ayx-button variant="contained" color="primary" onClick={incrementCounter}>Increment</ayx-button>
             </Grid>
             <Grid item xs="auto">
-              <core-dec-btn onMouseEnter={() => console.log('i did it')} onClick={decrementCounter} variant="contained" color="primary" title="test">
+              <ayx-button onMouseEnter={() => console.log('i did it')} onClick={decrementCounter} variant="contained" color="secondary" title="test">
                 <td-counter count={count} />
-              </core-dec-btn>
+              </ayx-button>
             </Grid>
           </Grid>
         </CardContent>

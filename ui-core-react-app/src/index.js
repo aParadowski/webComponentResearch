@@ -12,8 +12,7 @@ import Counter from './components/CounterHook';
 import './web-components/ImperativeCounter';
 import './web-components/DeclarativeCounter';
 import './web-components/TypoDeclarativeCounter';
-import './web-components/CoreWebComponent';
-import './web-components/CoreDecButton';
+import './web-components/AyxButton';
 
 // taken from https://www.grapecity.com/blogs/using-web-components-with-react-2019
 const CounterApp = () => {
