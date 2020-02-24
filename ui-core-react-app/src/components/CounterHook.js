@@ -73,6 +73,29 @@ export default () => {
               </ayx-button>
             </Grid>
           </Grid>
+
+          <Typography>List</Typography>
+          <Grid container spacing={2} style={{ marginTop: 20 }}>
+            <Grid item xs>
+              <ayx-list>
+                <ayx-list-item button>
+                  <ayx-list-item-text>
+                    Item One
+                  </ayx-list-item-text>
+                </ayx-list-item>
+                <ayx-list-item button>
+                  <ayx-list-item-text>
+                    Item Two
+                  </ayx-list-item-text>
+                </ayx-list-item>
+                <ayx-list-item button disabled>
+                  <ayx-list-item-text>
+                    Disabled
+                  </ayx-list-item-text>
+                </ayx-list-item>
+              </ayx-list>
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
     </>

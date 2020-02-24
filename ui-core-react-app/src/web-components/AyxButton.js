@@ -12,20 +12,20 @@ class AyxButton extends HTMLElement {
     ReactDOM.unmountComponentAtNode(this.mountPoint);
   }
 
-  static get observedAttributes() {
-    // return ['onClick'];
-  }
+  // static get observedAttributes() {
+  //   return ['onClick'];
+  // }
 
   // we dont need to check the attrName of what was updated since we told the browser
   // we only care about count in the obeservedAttributes static property
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    // this.onClick = newVal;
-    // this.update();
-  }
+  // attributeChangedCallback(attrName, oldVal, newVal) {
+  //   this.onClick = newVal;
+  //   this.update();
+  // }
 
   connectedCallback() {
     // this.onClick = this.getAttribute('onClick') || undefined;
-    // this.update();
+    this.update();
   }
 
   convertAttributes(attrs) {
