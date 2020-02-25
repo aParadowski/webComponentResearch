@@ -44,7 +44,7 @@ class AyxList extends HTMLElement {
       <StylesProvider jss={jss}>
         <AyxAppWrapper>
           <List {...attrs}>
-            <div dangerouslySetInnerHTML={{__html: this.innerHTML}} />
+            <slot></slot>
           </List> 
         </AyxAppWrapper>
       </StylesProvider>,

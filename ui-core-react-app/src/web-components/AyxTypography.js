@@ -1,22 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AyxAppWrapper, ListItem } from '@ayx/ui-core';
+import { AyxAppWrapper, Typography } from '@ayx/ui-core';
 import { StylesProvider, jssPreset } from '@material-ui/styles';
 import { create } from 'jss';
-let jss;
 
-class AyxListItem extends HTMLElement {
+let jss;
+class AyxTypography extends HTMLElement {
   mountPoint;
 
   disconnectedCallback() {
     ReactDOM.unmountComponentAtNode(this.mountPoint);
   }
 
-  static get observedAttributes() {}
+  static get observedAttributes() {
+    return ['value'];
+  }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {}
+  // we dont need to check the attrName of what was updated since we told the browser
+  // we only care about count in the obeservedAttributes static property
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    this.currentCount = newVal;
+    this.update();
+  }
 
   connectedCallback() {
+    this.currentCount = this.getAttribute('value') || 0;
     this.update();
   }
 
@@ -31,22 +39,22 @@ class AyxListItem extends HTMLElement {
   // refreshed the elements shadowDOM
   update() {
     if (!this.mountPoint) {
-      this.mountPoint = document.createElement('div');
+      debugger
+      this.mountPoint = document.createElement('span');
       jss = create({
         ...jssPreset(),
         insertionPoint: this.mountPoint
-      });
+    });
       this.attachShadow({ mode: 'open' }).appendChild(this.mountPoint);
-      
     }
-    
     const attrs = this.convertAttributes(this.attributes);
+    // console.log("in my typo update: ", {attrs})
     ReactDOM.render(
       <StylesProvider jss={jss}>
         <AyxAppWrapper>
-          <ListItem {...attrs}>
+          <Typography  {...attrs}>
             <slot></slot>
-          </ListItem> 
+          </Typography>
         </AyxAppWrapper>
       </StylesProvider>,
       this.mountPoint
@@ -54,4 +62,4 @@ class AyxListItem extends HTMLElement {
   }
 }
 
-window.customElements.define('ayx-list-item', AyxListItem);
+window.customElements.define('ayx-typography', AyxTypography);

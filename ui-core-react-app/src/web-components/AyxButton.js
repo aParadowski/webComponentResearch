@@ -12,19 +12,29 @@ class AyxButton extends HTMLElement {
     ReactDOM.unmountComponentAtNode(this.mountPoint);
   }
 
-  // static get observedAttributes() {
-  //   return ['onClick'];
-  // }
+  static get observedAttributes() {
+    return ['children'];
+  }
 
   // we dont need to check the attrName of what was updated since we told the browser
   // we only care about count in the obeservedAttributes static property
-  // attributeChangedCallback(attrName, oldVal, newVal) {
-  //   this.onClick = newVal;
-  //   this.update();
-  // }
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    console.log('changed')
+    // this.onClick = newVal;
+    // this.update();
+  }
 
   connectedCallback() {
     // this.onClick = this.getAttribute('onClick') || undefined;
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        //Detect <img> insertion
+        console.log(mutation)
+      })
+    })
+
+    observer.observe(this, { childList: true })
+  
     this.update();
   }
 
@@ -44,7 +54,7 @@ class AyxButton extends HTMLElement {
         ...jssPreset(),
         insertionPoint: this.mountPoint
     });
-      this.attachShadow({ mode: 'open' }).appendChild(this.mountPoint);
+      this.attachShadow({ mode: 'open', delegatesFocus: true }).appendChild(this.mountPoint);
       
       this.addEventListener('focus', function(event) {
         console.info('element in shadow root focused', event.target);
@@ -61,7 +71,7 @@ class AyxButton extends HTMLElement {
       <StylesProvider jss={jss}>
         <AyxAppWrapper>
           <Button {...attrs}>
-            <div dangerouslySetInnerHTML={{__html: this.innerHTML}} />
+            <slot></slot>
           </Button> 
         </AyxAppWrapper>
       </StylesProvider>,

@@ -9,13 +9,7 @@ import { render } from 'react-dom';
 import Counter from './components/CounterHook';
 
 // import custom elements
-import './web-components/ImperativeCounter';
-import './web-components/DeclarativeCounter';
-import './web-components/TypoDeclarativeCounter';
-import './web-components/AyxButton';
-import './web-components/AyxList';
-import './web-components/AyxListItem';
-import './web-components/AyxListItemText';
+import * as allComponents from './web-components';
 
 // taken from https://www.grapecity.com/blogs/using-web-components-with-react-2019
 const CounterApp = () => {

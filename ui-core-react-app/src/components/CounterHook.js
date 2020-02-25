@@ -42,8 +42,8 @@ export default () => {
             </Grid>
             <Grid item xs={4}>
               <CounterBox>
-                <h5>Typography Declarative Counter</h5>
-                <td-counter count={count} />
+                <h5>Typography Declarative Counter </h5>
+                <ayx-typography variant="h1"> {count} </ayx-typography>
               </CounterBox>
             </Grid>
           </Grid>
@@ -69,7 +69,7 @@ export default () => {
             </Grid>
             <Grid item xs="auto">
               <ayx-button onMouseEnter={() => console.log('i did it')} onClick={decrementCounter} variant="contained" color="secondary" title="test">
-                <td-counter count={count} />
+                <ayx-typography variant="h6"> {count} </ayx-typography>
               </ayx-button>
             </Grid>
           </Grid>

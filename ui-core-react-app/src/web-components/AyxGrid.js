@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AyxAppWrapper, ListItem } from '@ayx/ui-core';
+import { AyxAppWrapper, Grid } from '@ayx/ui-core';
 import { StylesProvider, jssPreset } from '@material-ui/styles';
 import { create } from 'jss';
 let jss;
 
-class AyxListItem extends HTMLElement {
+class AyxGrid extends HTMLElement {
   mountPoint;
 
   disconnectedCallback() {
@@ -14,7 +14,7 @@ class AyxListItem extends HTMLElement {
 
   static get observedAttributes() {}
 
-  attributeChangedCallback(attrName, oldVal, newVal) {}
+  attributeChangedCallback(attrName, oldVal, newVal) { }
 
   connectedCallback() {
     this.update();
@@ -35,18 +35,17 @@ class AyxListItem extends HTMLElement {
       jss = create({
         ...jssPreset(),
         insertionPoint: this.mountPoint
-      });
+    });
       this.attachShadow({ mode: 'open' }).appendChild(this.mountPoint);
-      
     }
-    
+
     const attrs = this.convertAttributes(this.attributes);
     ReactDOM.render(
       <StylesProvider jss={jss}>
         <AyxAppWrapper>
-          <ListItem {...attrs}>
+          <Grid {...attrs}>
             <slot></slot>
-          </ListItem> 
+          </Grid> 
         </AyxAppWrapper>
       </StylesProvider>,
       this.mountPoint
@@ -54,4 +53,4 @@ class AyxListItem extends HTMLElement {
   }
 }
 
-window.customElements.define('ayx-list-item', AyxListItem);
+window.customElements.define('ayx-grid', AyxGrid);
