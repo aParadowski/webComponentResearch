@@ -81,3 +81,4 @@ class AyxButton extends HTMLElement {
 }
 
 window.customElements.define('ayx-button', AyxButton);
+export default AyxButton;

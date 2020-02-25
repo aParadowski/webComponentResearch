@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Button, AppBar, Card, CardHeader, CardContent, Typography, Grid } from '@ayx/ui-core';
+import { Button, AppBar, Card, CardHeader, CardContent, Typography, Grid, Divider } from '@ayx/ui-core';
 
 import CounterBox from '../containers/CounterBox';
 
@@ -47,8 +47,10 @@ export default () => {
               </CounterBox>
             </Grid>
           </Grid>
-          <Typography>Basic components</Typography>
-          <Grid container spacing={2} style={{ marginTop: 20 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography>Basic components</Typography>
+            </Grid>
             <Grid item xs>
               <Button color="primary" onClick={incrementCounter} variant="contained">
                 Increment
@@ -61,9 +63,9 @@ export default () => {
               </Button>
             </Grid>
           </Grid>
-
+          <Divider style={{margin: 20}} />
           <Typography>Web Components</Typography>
-          <Grid container spacing={2} style={{ marginTop: 20 }}>
+          <Grid container spacing={2}>
             <Grid item xs>
               <ayx-button variant="contained" color="primary" onClick={incrementCounter}>Increment</ayx-button>
             </Grid>
@@ -75,8 +77,8 @@ export default () => {
           </Grid>
 
           <Typography>List</Typography>
-          <Grid container spacing={2} style={{ marginTop: 20 }}>
-            <Grid item xs>
+          <Grid container spacing={2}>
+            <Grid item xs='auto'>
               <ayx-list>
                 <ayx-list-item button>
                   <ayx-list-item-text>
