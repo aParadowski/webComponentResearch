@@ -1,4 +1,5 @@
-var button = require('../../node_modules/web-test/AyxButton/index.js')
+var button = require('../../node_modules/core-web-components/AyxButton/index.js')
+var typography = require('../../node_modules/core-web-components/AyxTypography/index.js')
 // // requirejs(["helper/util"], function(util) {
 // //   //This function is called when scripts/helper/util.js is loaded.
 // //   //If util.js calls define(), then this function is not fired until

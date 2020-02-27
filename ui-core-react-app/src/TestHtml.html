@@ -1,23 +1,44 @@
 <html>
 
   <head>
-    <!-- <script data-main="scripts/main" src="./scripts/require.js"></script> -->
-    <!-- <script src="./AyxButton/index.js"></script> -->
-    <!-- <script src="./web-components/AyxButton.js"></script> -->
     <script src="bundle.js"></script>
     <script>
-      function myFunction() {
-        alert("I am an alert box!");
+      function getCurrentNum() {
+        let text = document.querySelector('#count_holder').innerText;
+        return parseInt(text)
+      }
+      function increment() {
+        let newNumber = getCurrentNum() + 1;
+        document.querySelector('#count_holder').innerText = newNumber;
+      }
+
+      function decrement() {
+        let newNumber = getCurrentNum() - 1;
+        document.querySelector('#count_holder').innerText = newNumber;
       }
     </script>
   </head>
   <body>
-
-    <ayx-button onClick="myFunction()" variant="contained" color="secondary" title="test">
-      Click Me! 
-    </ayx-button>
-    <ayx-button onClick="myFunction()" variant="contained" color="primary" title="test">
-      Click Me! 
-    </ayx-button>
+    <div>
+      <div> 
+        <ayx-typography variant="h1">Welcome to my Html demo!</ayx-typography>
+      </div>
+      
+      <div style="display: flex; box-sizing: border-box; flex-wrap: wrap; width: 100%;">
+        <div style="max-width: 100%; flex-basis: 0; flex-grow: 0.1;">
+          <ayx-button onClick="increment()" variant="contained" color="primary">
+            Increment
+          </ayx-button>
+        </div>
+        <div style="max-width: 100%; flex-basis: 0; flex-grow: 0.1;">
+          <ayx-button onClick="decrement()" variant="contained" color="secondary">
+            Decrement
+          </ayx-button>
+        </div>
+        <div style="max-width: 100%; flex-basis: 0; flex-grow: 0.1; margin-top: 8px;"> 
+          <ayx-typography variant="h2" id="count_holder"> 0 </ayx-typography>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
