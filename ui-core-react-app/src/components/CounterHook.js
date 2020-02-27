@@ -6,6 +6,7 @@ import CounterBox from '../containers/CounterBox';
 export default () => {
   const counterElement = useRef(null);
   const [count, setCount] = useState(0);
+  const [expanded, setExpanded] = useState(1);
 
   const incrementCounter = () => {
     // increment the declarative counter
@@ -55,11 +56,10 @@ export default () => {
                   <Typography>Basic Ui-Core Components</Typography>
                 </Grid>
                 <Grid item xs>
-                  <Button color="primary" onClick={incrementCounter} variant="contained">
-                    Increment
-                  </Button>
+                    <Button color="primary" onClick={incrementCounter} variant="contained">
+                      Increment
+                    </Button>
                 </Grid>
-
                 <Grid item xs="auto">
                   <Button color="primary" onClick={decrementCounter} variant="contained">
                     Decrement
@@ -93,9 +93,10 @@ export default () => {
           <Card>
             <CardHeader title="Converted Component Demos" />
             <CardContent>
-            <ayx-typography variant="h3">List</ayx-typography>
+
               <Grid container spacing={2}>
-                <Grid item xs='auto'>
+                <Grid item xs={3}>
+                  <ayx-typography variant="h3">List</ayx-typography>
                   <ayx-list>
                     <ayx-list-item button>
                       <ayx-list-item-text>
@@ -114,7 +115,87 @@ export default () => {
                     </ayx-list-item>
                   </ayx-list>
                 </Grid>
+
+                <Grid item xs={3}>
+                  <ayx-typography variant="h3">Circular Progress</ayx-typography>
+                  <ayx-circular-progress />
+                </Grid>
+                
+                <Grid item xs={3}>
+                  <ayx-typography variant="h3">Inputs</ayx-typography>
+                  <Grid container justify="center" spacing={4}>
+                    <Grid item xs={12}>
+                      <ayx-input
+                        defaultValue="Hello world"
+                        inputProps={{
+                          'aria-label': 'Description'
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <ayx-input
+                        inputProps={{
+                          'aria-label': 'Description'
+                        }}
+                        placeholder="Placeholder"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <ayx-input
+                        disabled
+                        inputProps={{
+                          'aria-label': 'Description'
+                        }}
+                        value="Disabled"
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <ayx-input
+                        defaultValue="Error"
+                        error
+                        inputProps={{'aria-label': 'Description' }}
+                      />
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={3}>
+                  <ayx-typography variant="h3">Expansion Panels</ayx-typography>
+                  <ayx-expansion-panel onClick={() => setExpanded(1)} expanded={expanded === 1}>
+                    <ayx-expansion-panel-summary slot="panelSummary" aria-controls="panel1a-content" id="panel1a-header">
+                      <ayx-typography>Expansion Panel 1</ayx-typography>
+                    </ayx-expansion-panel-summary>
+                    <ayx-expansion-panel-details slot="panelDetails">
+                      <ayx-typography>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo
+                        lobortis eget.
+                      </ayx-typography>
+                    </ayx-expansion-panel-details>
+                  </ayx-expansion-panel>
+                  <ayx-expansion-panel onClick={() => setExpanded(2)} expanded={expanded === 2}>
+                    <ayx-expansion-panel-summary slot="panelSummary" aria-controls="panel2a-content" id="panel2a-header">
+                      <ayx-typography>Expansion Panel 2</ayx-typography>
+                    </ayx-expansion-panel-summary>
+                    <ayx-expansion-panel-details slot="panelDetails">
+                      <ayx-typography>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo
+                        lobortis eget.
+                      </ayx-typography>
+                    </ayx-expansion-panel-details>
+                  </ayx-expansion-panel>
+                  <ayx-expansion-panel disabled>
+                    <ayx-expansion-panel-summary slot="panelSummary" aria-controls="panel3a-content" id="panel3a-header">
+                      <ayx-typography>Disabled Expansion Panel</ayx-typography>
+                    </ayx-expansion-panel-summary>
+                  </ayx-expansion-panel>
+                </Grid>
+
+                
+                
+
               </Grid>
+
+
             </CardContent>
           </Card>
         </Grid>

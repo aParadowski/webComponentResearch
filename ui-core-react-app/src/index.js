@@ -9,6 +9,15 @@ import 'core-web-components/AyxList';
 import 'core-web-components/AyxListItem';
 import 'core-web-components/AyxListItemText';
 
+
+//wips 
+import './web-components/AyxToolitp';
+import './web-components/AyxCircularProgress';
+import './web-components/AyxExpansionPanel';
+import './web-components/AyxExpansionPanelSummary';
+import './web-components/AyxExpansionPanelDetails';
+import './web-components/AyxInput';
+
 // import local components
 import Counter from './components/CounterHook';
 import './web-components/DeclarativeCounter';
