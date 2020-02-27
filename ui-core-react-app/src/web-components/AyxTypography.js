@@ -39,7 +39,6 @@ class AyxTypography extends HTMLElement {
   // refreshed the elements shadowDOM
   update() {
     if (!this.mountPoint) {
-      debugger
       this.mountPoint = document.createElement('span');
       jss = create({
         ...jssPreset(),

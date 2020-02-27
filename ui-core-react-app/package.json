@@ -6,6 +6,7 @@
     "@ayx/icons": "^2.2.4",
     "@ayx/ui-core": "^3.8.1",
     "copypaste-webcomponent": "^2.0.0",
+    "core-web-components": "^1.0.0",
     "eslint": "^6.8.0",
     "eslint-config-ayx-ui": "^2.0.6",
     "prettier": "^1.19.1",
