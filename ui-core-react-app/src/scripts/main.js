@@ -1,12 +1,4 @@
 var button = require('../../node_modules/core-web-components/AyxButton/index.js')
 var typography = require('../../node_modules/core-web-components/AyxTypography/index.js')
-// // requirejs(["helper/util"], function(util) {
-// //   //This function is called when scripts/helper/util.js is loaded.
-// //   //If util.js calls define(), then this function is not fired until
-// //   //util's dependencies have loaded, and the util argument will hold
-// //   //the module value for "helper/util".
-// // });
-
-// define(['require', '@babel/runtime/helpers/interopRequireDefault'], function (require) {
-//   var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault');
-// });
+var party = require('../../node_modules/core-web-components/AyxInput/index.js')
+var input = require('../../node_modules/core-web-components/AyxPartyMode/index.js')

@@ -8,15 +8,15 @@ import 'core-web-components/AyxTypography';
 import 'core-web-components/AyxList';
 import 'core-web-components/AyxListItem';
 import 'core-web-components/AyxListItemText';
+import 'core-web-components/AyxCircularProgress';
+import 'core-web-components/AyxInput';
+import 'core-web-components/AyxPartyMode';
 
 
 //wips 
-import './web-components/AyxToolitp';
-import './web-components/AyxCircularProgress';
 import './web-components/AyxExpansionPanel';
 import './web-components/AyxExpansionPanelSummary';
 import './web-components/AyxExpansionPanelDetails';
-import './web-components/AyxInput';
 
 // import local components
 import Counter from './components/CounterHook';
